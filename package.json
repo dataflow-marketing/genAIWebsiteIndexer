@@ -1,0 +1,29 @@
+{
+  "name": "genAIWebsiteIndexer",
+  "version": "0.1.0",
+  "description": "Used to crawl website sitemaps, extract and process content using generative AI and then index the results with interest data into Elasticsearch.",
+  "main": "app.js",
+  "scripts": {
+    "start":"node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dataflow-marketing/genAIWebsiteIndexer.git"
+  },
+  "type": "module",
+  "author": "mattcam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dataflow-marketing/genAIWebsiteIndexer/issues"
+  },
+  "homepage": "https://github.com/dataflow-marketing/genAIWebsiteIndexer#readme",
+  "dependencies": {
+    "@elastic/elasticsearch": "^8.15.0",
+    "crawlee": "^3.11.1",
+    "dotenv": "^16.4.5",
+    "got": "^14.4.2",
+    "html-to-text": "^9.0.5",
+    "underscore": "^1.13.7"
+  }
+}
