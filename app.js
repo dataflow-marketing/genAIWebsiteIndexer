@@ -15,22 +15,23 @@ const crawler = new CheerioCrawler({
     async requestHandler({ pushData, request, body, log }) {
         const text = convert(body);
 
-        let interests = null;
+        let result = null;
         if (process.env.USE_AI === 'true') {
             const response = await got.post(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_AI_ACCOUNTID}/ai/run/${process.env.CLOUDFLARE_AI_MODEL}`,
                 { headers: { Authorization: `Bearer ${process.env.CLOUDFLARE_AI_TOKEN}`,'content-type': 'application/json'},
                 json:{ messages: [ { role: "system", content: `${process.env.CLOUDFLARE_AI_CONTENT_SYSTEM}`, }, { role: "user", content: `${process.env.CLOUDFLARE_AI_CONTENT_USER}   ${text}`, }, ] }
             });
-            await client.index({
-                index: process.env.ELASTIC_INDEX,
-                refresh: true,
-                body: {
-                    url: request.url,
-                    text: text,
-                    interests:JSON.parse(JSON.parse(response.body).result.response).interests
-                }
-            })
+            result = JSON.parse(JSON.parse(response.body).result.response).interests
         }
+        await client.index({
+            index: process.env.ELASTIC_INDEX,
+            refresh: true,
+            body: {
+                url: request.url,
+                text: text,
+                interests:result
+            }
+        })
     }
 });
 
