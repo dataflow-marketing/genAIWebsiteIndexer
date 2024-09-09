@@ -14,22 +14,22 @@ $ npm install
 $ dotenvx run --env-file=.env -- npm run start
 ```
 
-### Configuration
+## Environment Variables
 
-```
-ELASTIC_HOST: Elasticsearch host
-ELASTIC_HTTP_AUTH_USERNAME: Elasticsearch username
-ELASTIC_HTTP_AUTH_PASSWORD: Elasticsearch password
-ELASTIC_INDEX:  Elasticsearch index
+### Elasticsearch Configuration
+- `ELASTIC_HOST`: Elasticsearch host
+- `ELASTIC_HTTP_AUTH_USERNAME`: Elasticsearch username
+- `ELASTIC_HTTP_AUTH_PASSWORD`: Elasticsearch password
+- `ELASTIC_INDEX`: Elasticsearch index
 
-SITEMAP_URL: URL of the sitemap
-SITEMAP_MAX_REQUESTS: The maximum number of requests
+### Sitemap Configuration
+- `SITEMAP_URL`: URL of the sitemap
+- `SITEMAP_MAX_REQUESTS`: The maximum number of requests to make to the sitemap
 
-CLOUDFLARE_AI_ACCOUNTID: Cloudflare account
-CLOUDFLARE_AI_TOKEN: Cloudflare token
-CLOUDFLARE_AI_MODEL: Cloudflare AI Model
-CLOUDFLARE_AI_CONTENT_SYSTEM: Describe the behavior or personality, for example "You are a friendly assistant"
-CLOUDFLARE_AI_CONTENT_USER: Prompt
-```
-
-
+### Cloudflare AI Configuration
+- `USE_AI`: true
+- `CLOUDFLARE_AI_ACCOUNTID`: Cloudflare account ID
+- `CLOUDFLARE_AI_TOKEN`: Cloudflare token
+- `CLOUDFLARE_AI_MODEL`: Cloudflare AI model to use
+- `CLOUDFLARE_AI_CONTENT_SYSTEM`: Description of AI assistant behavior or personality (e.g., "You are a friendly assistant")
+- `CLOUDFLARE_AI_CONTENT_USER`: User prompt or input
