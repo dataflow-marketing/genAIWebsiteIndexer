@@ -12,8 +12,12 @@ const client = new Client({ node: process.env.ELASTIC_HOST,
 })
 
 const crawler = new CheerioCrawler({
-    async requestHandler({ pushData, request, body, log }) {
-        const text = convert(body);
+    async requestHandler({ pushData, request, body, log, $ }) {
+        let text = '';
+        process.env.HTML_SELECTORS.split(", ").forEach((selector) => {
+            text = text + $(selector).text().trim() + ' ';
+        });
+        text = text.trim();
 
         let result = null;
         if (process.env.USE_AI === 'true') {
@@ -32,7 +36,9 @@ const crawler = new CheerioCrawler({
                 interests:result
             }
         })
-    }
+    },
+    maxConcurrency: Number(process.env.CRAWL_MAXCONCURRENCY),
+    maxRequestsPerMinute: Number(process.env.CRAWL_MAXREQUESTSPERMINUTE)
 });
 
 const { urls } = await Sitemap.load(process.env.SITEMAP_URL);

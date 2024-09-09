@@ -24,7 +24,11 @@ $ dotenvx run --env-file=.env -- npm run start
 
 ### Sitemap Configuration
 - `SITEMAP_URL`: URL of the sitemap
-- `SITEMAP_MAX_REQUESTS`: The maximum number of requests to make to the sitemap
+- `SITEMAP_MAX_REQUESTS`: Maximum number of requests to make to the sitemap
+- `CRAWL_MAXCONCURRENCY`: TMaximum concurrency
+- `CRAWL_MAXREQUESTSPERMINUTE`: Maximum Requests Per Minute
+- `HTML_SELECTORS`: Content to select from the HTML (e.g. jJQuery like selectors in the format "H1, H2, H3, .gh-article-excerpt, .gh-content")
+
 
 ### Cloudflare AI Configuration
 - `USE_AI`: true
