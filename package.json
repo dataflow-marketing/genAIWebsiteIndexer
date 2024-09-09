@@ -4,7 +4,7 @@
   "description": "Used to crawl website sitemaps, extract and process content using generative AI and then index the results with interest data into Elasticsearch.",
   "main": "app.js",
   "scripts": {
-    "start":"node app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dataflow-marketing/genAIWebsiteIndexer#readme",
   "dependencies": {
+    "@dotenvx/dotenvx": "^1.13.2",
     "@elastic/elasticsearch": "^8.15.0",
     "crawlee": "^3.11.1",
     "dotenv": "^16.4.5",

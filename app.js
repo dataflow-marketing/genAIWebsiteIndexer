@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import _ from 'underscore';
 import { CheerioCrawler, Sitemap } from 'crawlee';
 import { Client } from '@elastic/elasticsearch';

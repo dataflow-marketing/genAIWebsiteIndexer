@@ -11,7 +11,7 @@ $ npm install
 ## Run the app
 
 ```
-$ npm run start
+$ dotenvx run --env-file=.env -- npm run start
 ```
 
 
