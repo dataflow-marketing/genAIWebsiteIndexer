@@ -25,6 +25,7 @@
     "dotenv": "^16.4.5",
     "got": "^14.4.2",
     "html-to-text": "^9.0.5",
-    "underscore": "^1.13.7"
+    "underscore": "^1.13.7",
+    "yargs": "^17.7.2"
   }
 }
