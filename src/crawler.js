@@ -22,7 +22,7 @@ export async function runCrawler() {
       text = text.trim();
 
       let genAIInterests = null;
-      if (process.env.USE_AI === 'true') {
+      if (process.env.USE_GENAI_INTERESTS === 'true') {
         genAIInterests = await fetchGenAIInterests(text); // Use the AI handler function
       }
 

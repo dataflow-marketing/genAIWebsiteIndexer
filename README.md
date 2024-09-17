@@ -111,12 +111,12 @@ Required for `crawl` command.
 ### Cloudflare AI Configuration
 Required for `crawl` command with using genAI to get interests.
 
-- `USE_AI`: true
 - `CLOUDFLARE_AI_ACCOUNTID`: Cloudflare account ID
 - `CLOUDFLARE_AI_TOKEN`: Cloudflare token
 - `CLOUDFLARE_AI_MODEL`: Cloudflare AI model to use
 - `CLOUDFLARE_AI_CONTENT_SYSTEM`: Description of AI assistant behavior or personality, for example: "You are a friendly assistant"
 - `CLOUDFLARE_AI_CONTENT_USER`: User prompt or input
+- `USE_GENAI_INTERESTS`: true
 
 ### Interest to Segment Mapping
 Required for `updateSegments` command.
