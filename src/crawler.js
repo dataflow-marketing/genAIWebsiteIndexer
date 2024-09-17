@@ -1,7 +1,8 @@
 import _ from 'underscore';
 import { CheerioCrawler, Sitemap } from 'crawlee';
 import { Client } from '@elastic/elasticsearch';
-import { fetchGenAIInterests } from './genAIHandlers/fetchGenAIInterests.js';
+import { fetchGenAI } from './genAIHandlers/fetchGenAI.js';
+
 
 // Elasticsearch client initialization
 const client = new Client({
@@ -23,8 +24,15 @@ export async function runCrawler() {
 
       let genAIInterests = null;
       if (process.env.USE_GENAI_INTERESTS === 'true') {
-        genAIInterests = await fetchGenAIInterests(text); 
+        genAIInterests = await fetchGenAI(process.env.GENAI_INTERESTS_PROMPT,text); 
       }
+
+      let genAICTA = null;
+      if (process.env.USE_GENAI_CTA === 'true') {
+        genAICTA = await fetchGenAI(process.env.GENAI_CTA_PROMPT,text); 
+      }
+
+      console.log(genAICTA);
 
       await client.index({
         index: process.env.ELASTIC_INDEX,
@@ -32,7 +40,8 @@ export async function runCrawler() {
         body: {
           url: request.url,
           text: text,
-          interests: genAIInterests,
+          interests: genAIInterests.interests,
+          cta: genAICTA.cta,
         },
       });
     },

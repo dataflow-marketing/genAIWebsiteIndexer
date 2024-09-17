@@ -115,8 +115,10 @@ Required for `crawl` command with using genAI to get interests.
 - `CLOUDFLARE_AI_TOKEN`: Cloudflare token
 - `CLOUDFLARE_AI_MODEL`: Cloudflare AI model to use
 - `CLOUDFLARE_AI_CONTENT_SYSTEM`: Description of AI assistant behavior or personality, for example: "You are a friendly assistant"
-- `CLOUDFLARE_AI_CONTENT_USER`: User prompt or input
 - `USE_GENAI_INTERESTS`: true
+- `GENAI_INTERESTS_PROMPT`: User prompt or input
+- `USE_GENAI_CTA`: true
+- `GENAI_CTA_PROMPT`: User prompt or input
 
 ### Interest to Segment Mapping
 Required for `updateSegments` command.

@@ -1,7 +1,7 @@
 // aiHandler.js
 import got from 'got';
 
-export async function fetchGenAIInterests(text) {
+export async function fetchGenAI(prompt,text) {
   try {
     const response = await got.post(
       `https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_AI_ACCOUNTID}/ai/run/${process.env.CLOUDFLARE_AI_MODEL}`,
@@ -13,16 +13,18 @@ export async function fetchGenAIInterests(text) {
         json: {
           messages: [
             { role: 'system', content: `${process.env.CLOUDFLARE_AI_CONTENT_SYSTEM}` },
-            { role: 'user', content: `${process.env.CLOUDFLARE_AI_CONTENT_USER} ${text}` },
+            { role: 'user', content: `${prompt} ${text}` },
           ],
         },
       }
     );
+
+    console.log(response.body);
     
     const parsedResponse = JSON.parse(JSON.parse(response.body).result.response);
-    return parsedResponse.interests;
+    return parsedResponse;
   } catch (error) {
-    console.error('Error fetching AI interests:', error);
+    console.error('Error fetching AI:', error);
     return null;
   }
 }
