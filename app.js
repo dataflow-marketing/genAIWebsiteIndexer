@@ -39,6 +39,6 @@ yargs(hideBin(process.argv))
       await listUniqueSegments();
     }
   )
-  .demandCommand(1, 'You need to specify a command to run (either "crawl" or "update-segments")')
+  .demandCommand(1, 'You need to specify a command to run (either "crawl", "listUniqueInterests", "update-segments" or "listUniqueSegments")')
   .help()
   .argv;
