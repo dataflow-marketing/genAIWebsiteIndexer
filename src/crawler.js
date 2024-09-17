@@ -1,7 +1,7 @@
 import _ from 'underscore';
 import { CheerioCrawler, Sitemap } from 'crawlee';
 import { Client } from '@elastic/elasticsearch';
-import { fetchGenAIInterests } from './genAIHandlers/fetchGenAIInterests.js'; // Import the AI handler
+import { fetchGenAIInterests } from './genAIHandlers/fetchGenAIInterests.js';
 
 // Elasticsearch client initialization
 const client = new Client({
@@ -23,7 +23,7 @@ export async function runCrawler() {
 
       let genAIInterests = null;
       if (process.env.USE_GENAI_INTERESTS === 'true') {
-        genAIInterests = await fetchGenAIInterests(text); // Use the AI handler function
+        genAIInterests = await fetchGenAIInterests(text); 
       }
 
       await client.index({
